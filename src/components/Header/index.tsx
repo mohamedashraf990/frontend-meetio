@@ -76,10 +76,11 @@ const Header = (props: {
         </div>
 
         <div className="flex items-center justify-normal gap-2 2xsm:gap-4 lg:w-full lg:justify-between xl:w-auto xl:justify-normal">
-          <ul className="flex items-center gap-2 2xsm:gap-4">
+          <ul className="flex items-center gap-2 2xsm:gap-4 flex-1">
             {/* <!-- Search Form --> */}
-            <SearchForm />
-            {/* <!-- Search Form --> */}
+            <div className="flex-1">
+              <SearchForm />
+            </div>
 
             {/* <!-- Dark Mode Toggle --> */}
             <DarkModeSwitcher />
