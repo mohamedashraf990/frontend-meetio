@@ -4,7 +4,10 @@ import ReactApexChart from "react-apexcharts";
 import DefaultSelectOption from "@/components/SelectOption/DefaultSelectOption";
 
 const ChartThree: React.FC = () => {
-  const series = [65, 34, 12, 56];
+  const series = [67, 33, 12, 56];
+  const usedMinutes = series.reduce((a, b) => a + b, 0);
+
+  const totalMinutes = 180;
 
   const options: ApexOptions = {
     chart: {
@@ -31,6 +34,7 @@ const ChartThree: React.FC = () => {
               label: "Minutes Used",
               fontSize: "16px",
               fontWeight: "400",
+              formatter: () => `${usedMinutes}/${totalMinutes} mins`,
             },
             value: {
               show: true,
