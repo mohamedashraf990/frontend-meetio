@@ -42,6 +42,16 @@ export default function MeetingDetailsPage() {
           owner: "Finance Department",
           due_date: "2024-07-30T00:00:00.000Z",
         },
+        {
+          task: "Clarify the status of tax levy and grants",
+          owner: "Tech Department",
+          due_date: "2024-07-30T00:00:00.000Z",
+        },
+        {
+          task: "Clarify the status of tax levy and grants",
+          owner: "Marketing Department",
+          due_date: "2024-07-30T00:00:00.000Z",
+        },
       ],
       Decisions: [
         {
@@ -74,7 +84,14 @@ export default function MeetingDetailsPage() {
         {
           question: "Can we clarify the delay in tax levy and grants?",
           status: "unanswered",
-          answer: "",
+          answer:
+            "The director of public works confirmed that the supplier is not part of the canoe procurement.",
+        },
+        {
+          question: "Can we clarify the delay in tax levy and grants?",
+          status: "unanswered",
+          answer:
+            "The director of public works confirmed that the supplier is not part of the canoe procurement.",
         },
       ],
       Insights: [
@@ -88,12 +105,37 @@ export default function MeetingDetailsPage() {
             "The increase in bursary amounts aligns with community standards for educational support.",
           reference: "Discussion on item 10.3 regarding SCI grad recipients.",
         },
+        {
+          insight:
+            "The increase in bursary amounts aligns with community standards for educational support.",
+          reference: "Discussion on item 10.3 regarding SCI grad recipients.",
+        },
+        {
+          insight:
+            "The increase in bursary amounts aligns with community standards for educational support.",
+          reference: "Discussion on item 10.3 regarding SCI grad recipients.",
+        },
       ],
       Deadlines: [
         {
           description: "Clarification on tax levy and grants",
-          related_to: "2024-07-30T00:00:00.000Z",
-          deadline: "2024-07-30T00:00:00.000Z",
+          related_to: "Tech Department",
+          deadline: "2024-07-30",
+        },
+        {
+          description: "Clarification on tax levy and grants",
+          related_to: "Marketing Department",
+          deadline: "2024-07-30",
+        },
+        {
+          description: "Clarification on tax levy and grants",
+          related_to: "Finance Department",
+          deadline: "2024-07-30",
+        },
+        {
+          description: "Clarification on tax levy and grants",
+          related_to: "Sales Department",
+          deadline: "2024-07-30",
         },
       ],
       Attendees: [
@@ -133,8 +175,46 @@ export default function MeetingDetailsPage() {
           owner: "Public Works Department",
           due_date: "2024-07-30T00:00:00.000Z",
         },
+        {
+          follow_up:
+            "Confirm if the rehabilitation trailer purchase can be amended to show Canadian funds.",
+          owner: "Public Works Department",
+          due_date: "2024-07-30T00:00:00.000Z",
+        },
+        {
+          follow_up:
+            "Confirm if the rehabilitation trailer purchase can be amended to show Canadian funds.",
+          owner: "Public Works Department",
+          due_date: "2024-07-30T00:00:00.000Z",
+        },
+        {
+          follow_up:
+            "Confirm if the rehabilitation trailer purchase can be amended to show Canadian funds.",
+          owner: "Public Works Department",
+          due_date: "2024-07-30T00:00:00.000Z",
+        },
       ],
       Risks: [
+        {
+          risk: "Potential delays in tax levy and grants could impact financial planning.",
+          impact: "Could lead to budget shortfalls.",
+        },
+        {
+          risk: "Potential delays in tax levy and grants could impact financial planning.",
+          impact: "Could lead to budget shortfalls.",
+        },
+        {
+          risk: "Potential delays in tax levy and grants could impact financial planning.",
+          impact: "Could lead to budget shortfalls.",
+        },
+        {
+          risk: "Potential delays in tax levy and grants could impact financial planning.",
+          impact: "Could lead to budget shortfalls.",
+        },
+        {
+          risk: "Potential delays in tax levy and grants could impact financial planning.",
+          impact: "Could lead to budget shortfalls.",
+        },
         {
           risk: "Potential delays in tax levy and grants could impact financial planning.",
           impact: "Could lead to budget shortfalls.",
