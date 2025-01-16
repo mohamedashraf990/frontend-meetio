@@ -11,7 +11,7 @@ const ChartThree: React.FC = () => {
       fontFamily: "Satoshi, sans-serif",
       type: "donut",
     },
-    colors: ["#5750F1", "#5475E5", "#8099EC", "#ADBCF2"],
+    colors: ["#ff4f4f", "#ff6f00", "#ffd700", "#32cd32"],
     labels: ["Phone Calls", "Recruitment", "Classroom", "Business Meetings"],
     legend: {
       show: false,
@@ -87,7 +87,7 @@ const ChartThree: React.FC = () => {
         <div className="-mx-7.5 flex flex-wrap items-center justify-center gap-y-2.5">
           <div className="w-full px-7.5 sm:w-1/2">
             <div className="flex w-full items-center">
-              <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-blue"></span>
+              <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#ff4f4f]"></span>
               <p className="flex w-full justify-between text-body-sm font-medium text-dark dark:text-dark-6">
                 <span> Phone Calls </span>
                 <span> 65 </span>
@@ -96,7 +96,7 @@ const ChartThree: React.FC = () => {
           </div>
           <div className="w-full px-7.5 sm:w-1/2">
             <div className="flex w-full items-center">
-              <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-blue-light"></span>
+              <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#ff6f00]"></span>
               <p className="flex w-full justify-between text-body-sm font-medium text-dark dark:text-dark-6">
                 <span> Recruitment </span>
                 <span> 34 </span>
@@ -105,7 +105,7 @@ const ChartThree: React.FC = () => {
           </div>
           <div className="w-full px-7.5 sm:w-1/2">
             <div className="flex w-full items-center">
-              <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-blue-light-2"></span>
+              <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#ffd700]"></span>
               <p className="flex w-full justify-between text-body-sm font-medium text-dark dark:text-dark-6">
                 <span> Business Meetings </span>
                 <span> 45 </span>
@@ -114,7 +114,7 @@ const ChartThree: React.FC = () => {
           </div>
           <div className="w-full px-7.5 sm:w-1/2">
             <div className="flex w-full items-center">
-              <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-blue-light-3"></span>
+              <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#32cd32]"></span>
               <p className="flex w-full justify-between text-body-sm font-medium text-dark dark:text-dark-6">
                 <span> Classroom </span>
                 <span> 12 </span>

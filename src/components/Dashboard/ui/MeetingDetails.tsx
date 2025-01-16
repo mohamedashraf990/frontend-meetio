@@ -20,6 +20,7 @@ import {
 import CategoryCard from "./CategoryCard";
 import axios from "axios";
 import { useToast } from "../hooks/use-toast";
+import ButtonDefault from "@/components/Buttons/ButtonDefault";
 
 interface CategoryItem {
   [key: string]: string;
@@ -136,11 +137,12 @@ export default function MeetingDetails({ data }: MeetingDetailsProps) {
       <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
         Latest Summary
       </h4>
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-xl font-bold">{data.name}</h1>
+      <div className="flex justify-between items-center mb-7">
+        <h2 className="text-xl font-bold">{data.name}</h2>
+
         <button
           onClick={handleExport}
-          className="flex items-center px-4 py-2 bg-primary text-white rounded dark:bg-primary-dark"
+          className="flex items-center px-4 py-2 bg-primary text-white text-sm rounded-[5px] dark:bg-primary-dark"
         >
           <Download className="w-5 h-5 mr-2" />
           Export as DOCX

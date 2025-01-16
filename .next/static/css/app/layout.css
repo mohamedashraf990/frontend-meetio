@@ -1810,6 +1810,22 @@ body{
 .bg-white\/20{
   background-color: rgb(255 255 255 / 0.2);
 }
+.bg-\[\#32cd32\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(50 205 50 / var(--tw-bg-opacity));
+}
+.bg-\[\#ff4f4f\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 79 79 / var(--tw-bg-opacity));
+}
+.bg-\[\#ff6f00\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 111 0 / var(--tw-bg-opacity));
+}
+.bg-\[\#ffd700\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 215 0 / var(--tw-bg-opacity));
+}
 .fill-\[\#DFE3F0\]{
   fill: #DFE3F0;
 }

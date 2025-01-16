@@ -331,7 +331,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </div>
             <span
               className="text-xs mt-2 block font-semibold"
-              style={{ color: "#ff4f4f" }}
+              style={{ color: "#8a8a8a" }}
             >
               Next-gen AI meetings notes with one Click
             </span>
