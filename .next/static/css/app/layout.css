@@ -1075,6 +1075,21 @@ body{
 .h-screen{
   height: 100vh;
 }
+.h-\[400px\]{
+  height: 400px;
+}
+.h-\[500px\]{
+  height: 500px;
+}
+.h-\[450px\]{
+  height: 450px;
+}
+.h-\[480px\]{
+  height: 480px;
+}
+.h-\[475px\]{
+  height: 475px;
+}
 .max-h-screen{
   max-height: 100vh;
 }

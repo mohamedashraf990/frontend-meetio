@@ -1,6 +1,7 @@
 import { MEETING } from "@/types/brand";
 import Image from "next/image";
 import ActionButtons from "./ActionButtons";
+import { ScrollArea } from "../Dashboard/ui/scroll-area";
 
 const meetingData: MEETING[] = [
   {
@@ -33,6 +34,30 @@ const meetingData: MEETING[] = [
     collaborators: 1,
     meetingTotalTime: "54 Min",
     meetingType: "Clasroom Notes",
+    notesLink: "Link will be added",
+  },
+  {
+    hostImage: "/images/user/user-05.png",
+    host: "Jordan",
+    collaborators: 4,
+    meetingTotalTime: "17 Min",
+    meetingType: "Medical Notes",
+    notesLink: "Link will be added",
+  },
+  {
+    hostImage: "/images/user/user-05.png",
+    host: "Jordan",
+    collaborators: 4,
+    meetingTotalTime: "17 Min",
+    meetingType: "Medical Notes",
+    notesLink: "Link will be added",
+  },
+  {
+    hostImage: "/images/user/user-05.png",
+    host: "Jordan",
+    collaborators: 4,
+    meetingTotalTime: "17 Min",
+    meetingType: "Medical Notes",
     notesLink: "Link will be added",
   },
   {
@@ -80,56 +105,57 @@ const MeetingsSummaryTable = () => {
             </h5>
           </div>
         </div>
-
-        {meetingData.map((meeting, key) => (
-          <div
-            className={`grid grid-cols-3 sm:grid-cols-5 ${
-              key === meetingData.length - 1
-                ? ""
-                : "border-b border-stroke dark:border-dark-3"
-            }`}
-            key={key}
-          >
-            <div className="flex items-center gap-3.5 px-2 py-4">
-              <div className="flex-shrink-0">
-                <Image
-                  src={meeting.hostImage}
-                  alt="Brand"
-                  width={48}
-                  height={48}
-                />
+        <ScrollArea className="h-[400px]">
+          {meetingData.map((meeting, key) => (
+            <div
+              className={`grid grid-cols-3 sm:grid-cols-5 ${
+                key === meetingData.length - 1
+                  ? ""
+                  : "border-b border-stroke dark:border-dark-3"
+              }`}
+              key={key}
+            >
+              <div className="flex items-center gap-3.5 px-2 py-4">
+                <div className="flex-shrink-0">
+                  <Image
+                    src={meeting.hostImage}
+                    alt="Brand"
+                    width={48}
+                    height={48}
+                  />
+                </div>
+                <p className="hidden font-medium text-dark dark:text-white sm:block">
+                  {meeting.host}
+                </p>
               </div>
-              <p className="hidden font-medium text-dark dark:text-white sm:block">
-                {meeting.host}
-              </p>
-            </div>
 
-            <div className="flex items-center justify-center px-2 py-4">
-              <p className="font-medium text-dark dark:text-white">
-                {meeting.collaborators}
-              </p>
-            </div>
+              <div className="flex items-center justify-center px-2 py-4">
+                <p className="font-medium text-dark dark:text-white">
+                  {meeting.collaborators}
+                </p>
+              </div>
 
-            <div className="flex items-center justify-center px-2 py-4">
-              <p className="font-medium text-green-light-1">
-                {meeting.meetingTotalTime}
-              </p>
-            </div>
+              <div className="flex items-center justify-center px-2 py-4">
+                <p className="font-medium text-green-light-1">
+                  {meeting.meetingTotalTime}
+                </p>
+              </div>
 
-            <div className="hidden items-center justify-center px-2 py-4 sm:flex">
-              <p className="font-medium text-dark dark:text-white">
-                {meeting.meetingType}
-              </p>
-            </div>
+              <div className="hidden items-center justify-center px-2 py-4 sm:flex">
+                <p className="font-medium text-dark dark:text-white">
+                  {meeting.meetingType}
+                </p>
+              </div>
 
-            <div className="hidden items-center justify-center px-2 py-4 sm:flex">
-              <p className="font-medium text-dark dark:text-white">
-                {/* {meeting.notesLink} */}
-                <ActionButtons />
-              </p>
+              <div className="hidden items-center justify-center px-2 py-4 sm:flex">
+                <p className="font-medium text-dark dark:text-white">
+                  {/* {meeting.notesLink} */}
+                  <ActionButtons />
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </ScrollArea>
       </div>
     </div>
   );

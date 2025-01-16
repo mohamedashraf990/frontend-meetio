@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Chat } from "@/types/chat";
+import { ScrollArea } from "../Dashboard/ui/scroll-area";
 
 const chatData: Chat[] = [
   {
@@ -58,6 +59,24 @@ const chatData: Chat[] = [
     textCount: 0,
     dot: 3,
   },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Hana Saeed",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    dot: 3,
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Hana Saeed",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    dot: 3,
+  },
 ];
 
 const ChatCard = () => {
@@ -68,59 +87,61 @@ const ChatCard = () => {
       </h4>
 
       <div>
-        {chatData.map((chat, key) => (
-          <Link
-            href="/"
-            className="flex items-center gap-4.5 px-7.5 py-3 hover:bg-gray-1 dark:hover:bg-dark-2"
-            key={key}
-          >
-            <div className="relative h-14 w-14 rounded-full">
-              <Image
-                width={56}
-                height={56}
-                src={chat.avatar}
-                alt="User"
-                style={{
-                  width: "auto",
-                  height: "auto",
-                }}
-              />
-              <span
-                className={`absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white dark:border-dark-2 ${
-                  chat.active === true
-                    ? "bg-green"
-                    : chat.active === false
-                      ? `bg-red-light`
-                      : "bg-orange-light"
-                }`}
-              ></span>
-            </div>
-
-            <div className="flex flex-1 items-center justify-between">
-              <div>
-                <h5 className="font-medium text-dark dark:text-white">
-                  {chat.name}
-                </h5>
-                <p>
-                  <span
-                    className={`mb-px text-body-sm font-medium ${chat.seen ? "dark:text-dark-3" : "text-dark-3 dark:text-dark-6"}`}
-                  >
-                    {chat.text}
-                  </span>
-                  <span className="text-xs"> . {chat.time}</span>
-                </p>
+        <ScrollArea className="h-[475px]">
+          {chatData.map((chat, key) => (
+            <Link
+              href="/"
+              className="flex items-center gap-4.5 px-7.5 py-3 hover:bg-gray-1 dark:hover:bg-dark-2"
+              key={key}
+            >
+              <div className="relative h-14 w-14 rounded-full">
+                <Image
+                  width={56}
+                  height={56}
+                  src={chat.avatar}
+                  alt="User"
+                  style={{
+                    width: "auto",
+                    height: "auto",
+                  }}
+                />
+                <span
+                  className={`absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white dark:border-dark-2 ${
+                    chat.active === true
+                      ? "bg-green"
+                      : chat.active === false
+                        ? `bg-red-light`
+                        : "bg-orange-light"
+                  }`}
+                ></span>
               </div>
-              {chat.textCount !== 0 && (
-                <div className="flex items-center justify-center rounded-full bg-primary px-2 py-0.5">
-                  <span className="text-sm font-medium text-white">
-                    {" "}
-                    {chat.textCount}
-                  </span>
+
+              <div className="flex flex-1 items-center justify-between">
+                <div>
+                  <h5 className="font-medium text-dark dark:text-white">
+                    {chat.name}
+                  </h5>
+                  <p>
+                    <span
+                      className={`mb-px text-body-sm font-medium ${chat.seen ? "dark:text-dark-3" : "text-dark-3 dark:text-dark-6"}`}
+                    >
+                      {chat.text}
+                    </span>
+                    <span className="text-xs"> . {chat.time}</span>
+                  </p>
                 </div>
-              )}
-            </div>
-          </Link>
-        ))}
+                {chat.textCount !== 0 && (
+                  <div className="flex items-center justify-center rounded-full bg-primary px-2 py-0.5">
+                    <span className="text-sm font-medium text-white">
+                      {" "}
+                      {chat.textCount}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </Link>
+          ))}
+        </ScrollArea>
       </div>
     </div>
   );
