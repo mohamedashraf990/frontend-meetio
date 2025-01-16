@@ -1,57 +1,72 @@
+// "use client";
+// import React, { useState } from "react";
+// import ChartThree from "../Charts/ChartThree";
+// import ChartTwo from "../Charts/ChartTwo";
+// import ChatCard from "../Chat/ChatCard";
+// import MeetingsSummaryTable from "../Tables/MeetingsSummaryTable";
+// import MapOne from "../Maps/MapOne";
+// import DataStatsOne from "@/components/DataStats/DataStatsOne";
+// import ChartOne from "@/components/Charts/ChartOne";
+// import BasicChart from "../Charts/BasicChart";
+// import RecorderComponent from "./RecorderComponent";
+// import MeetingDetailsPage from "./MeetingDetailsPage";
+
+// const ECommerce: React.FC = () => {
+//   return (
+//     <div>
+//       <RecorderComponent />
+//       <div className="mt-4">
+//         <BasicChart />
+//       </div>
+//       <div className="mt-4">
+//         <MeetingsSummaryTable />
+//       </div>
+//       <div className="mt-4">
+//         <ChatCard />
+//       </div>
+//       <div className="mt-4">
+//         <MeetingDetailsPage />
+//       </div>
+//       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-9 2xl:gap-7.5">
+//         {/* <ChartOne /> */}
+//         {/* <ChartTwo /> */}
+//         {/* <ChartThree /> */}
+//         {/* <MapOne /> */}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ECommerce;
+
 "use client";
+
 import React from "react";
-import ChartThree from "../Charts/ChartThree";
-import ChartTwo from "../Charts/ChartTwo";
+import BasicChart from "../Charts/BasicChart";
 import ChatCard from "../Chat/ChatCard";
+import RecorderComponent from "./RecorderComponent";
 import MeetingsSummaryTable from "../Tables/MeetingsSummaryTable";
-import MapOne from "../Maps/MapOne";
-import DataStatsOne from "@/components/DataStats/DataStatsOne";
-import ChartOne from "@/components/Charts/ChartOne";
-import { useState } from "react";
+import MeetingDetailsPage from "./MeetingDetailsPage";
 
 const ECommerce: React.FC = () => {
-  const [isRecording, setIsRecording] = useState(false);
-  const handleRecord = () => {
-    setIsRecording(!isRecording);
-    // Add logic to start/stop recording from the microphone
-  };
   return (
-    <>
-      <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card mb-4">
-        <div className="border-b border-stroke px-6.5 py-4 dark:border-dark-3">
-          <h3 className="font-medium text-dark dark:text-white">Record Now</h3>
+    <div>
+      <RecorderComponent />
+      <div className="mt-4 flex flex-wrap gap-4">
+        <div className="flex-1 min-w-[300px]">
+          <BasicChart />
         </div>
-        <div className="flex flex-col gap-5.5 p-6.5">
-          <div>
-            <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-              Start your meeting recording and get instant notes in real-time{" "}
-            </label>
-            <button
-              onClick={handleRecord}
-              className={`w-full cursor-pointer rounded-[7px] border-[1.5px] border-stroke bg-transparent outline-none transition px-6.5 py-[13px] text-body-sm font-medium text-dark-5 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-dark dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary ${
-                isRecording
-                  ? "bg-red-500 text-white hover:bg-red-500"
-                  : "hover:bg-primary hover:bg-opacity-30"
-              }`}
-            >
-              {isRecording ? "Stop Recording" : "Start Recording"}
-            </button>
-          </div>
+        <div className="flex-1 min-w-[300px]">
+          <ChatCard />
         </div>
       </div>
-      {/* <DataStatsOne /> */}
-      <div className="col-span-12 xl:col-span-8 mb-4 xl:mb-6 2xl:mb-9">
+      <div className="mt-4">
         <MeetingsSummaryTable />
       </div>
-      <ChatCard />
-
-      <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-9 2xl:gap-7.5">
-        {/* <ChartOne /> */}
-        {/* <ChartTwo /> */}
-        {/* <ChartThree /> */}
-        {/* <MapOne /> */}
+      <div className="mt-4">
+        <MeetingDetailsPage />
       </div>
-    </>
+    </div>
   );
 };
 

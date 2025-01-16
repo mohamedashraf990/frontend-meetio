@@ -1,5 +1,6 @@
 import { MEETING } from "@/types/brand";
 import Image from "next/image";
+import ActionButtons from "./ActionButtons";
 
 const meetingData: MEETING[] = [
   {
@@ -75,7 +76,7 @@ const MeetingsSummaryTable = () => {
           </div>
           <div className="hidden px-2 pb-3.5 text-center sm:block">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              AI Notes
+              Actions
             </h5>
           </div>
         </div>
@@ -123,7 +124,8 @@ const MeetingsSummaryTable = () => {
 
             <div className="hidden items-center justify-center px-2 py-4 sm:flex">
               <p className="font-medium text-dark dark:text-white">
-                {meeting.notesLink}
+                {/* {meeting.notesLink} */}
+                <ActionButtons />
               </p>
             </div>
           </div>

@@ -49,6 +49,15 @@ const chatData: Chat[] = [
     textCount: 0,
     dot: 3,
   },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Hana Saeed",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    dot: 3,
+  },
 ];
 
 const ChatCard = () => {

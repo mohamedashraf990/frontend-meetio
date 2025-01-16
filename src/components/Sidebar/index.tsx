@@ -301,7 +301,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         }`}
       >
         {/* <!-- SIDEBAR HEADER --> */}
-        <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-4 xl:py-10">
+        <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-4 xl:py-8">
           <Link href="/">
             <div className="flex items-center gap-2">
               <Image
