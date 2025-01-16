@@ -136,7 +136,7 @@ export default function MeetingDetails({ data }: MeetingDetailsProps) {
     <div className="rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
       <div className="flex justify-between items-center mb-5">
         <h4 className="text-body-2xlg font-bold text-dark dark:text-white">
-          Latest Summaries
+          Recent Summaries
         </h4>
         <div className="flex items-center">
           <ArrowLeft className="mr-2" size={20} />
