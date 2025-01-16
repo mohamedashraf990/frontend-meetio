@@ -53,7 +53,7 @@ const ECommerce: React.FC = () => {
     <div>
       <RecorderComponent />
       <div className="mt-4 flex flex-wrap gap-4">
-        <div className="flex-1 min-w-[300px]">
+        <div className="flex-1 min-w-[300px] ">
           <BasicChart />
         </div>
         <div className="flex-1 min-w-[300px]">

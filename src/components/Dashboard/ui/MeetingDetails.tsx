@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ScrollArea } from "./scroll-area";
 import { Card, CardContent, CardHeader, CardTitle } from "./card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import {
   CheckCircle,
   Flag,
@@ -20,7 +21,6 @@ import {
 import CategoryCard from "./CategoryCard";
 import axios from "axios";
 import { useToast } from "../hooks/use-toast";
-import ButtonDefault from "@/components/Buttons/ButtonDefault";
 
 interface CategoryItem {
   [key: string]: string;
@@ -134,9 +134,15 @@ export default function MeetingDetails({ data }: MeetingDetailsProps) {
 
   return (
     <div className="rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
-      <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
-        Latest Summary
-      </h4>
+      <div className="flex justify-between items-center mb-5">
+        <h4 className="text-body-2xlg font-bold text-dark dark:text-white">
+          Latest Summaries
+        </h4>
+        <div className="flex items-center">
+          <ArrowLeft className="mr-2" size={20} />
+          <ArrowRight size={20} />
+        </div>
+      </div>
       <div className="flex justify-between items-center mb-7">
         <h2 className="text-xl font-bold">{data.name}</h2>
 
