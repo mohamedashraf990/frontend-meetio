@@ -8,6 +8,7 @@ import SidebarItem from "@/components/Sidebar/SidebarItem";
 import ClickOutside from "@/components/ClickOutside";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { UserPlus } from "lucide-react";
+import { PageHeaderDescription } from "../Dashboard/ui/page";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -280,7 +281,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         }`}
       >
         {/* <!-- SIDEBAR HEADER --> */}
-        <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-4 xl:py-8">
+        <div className="flex items-center justify-between gap-2 px-6  lg:py-4 xl:py-4 mb-3">
           <Link href="/">
             <div className="flex items-center gap-2">
               <Image
@@ -308,11 +309,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 Meet.io
               </span>
             </div>
-            <span
-              className="text-xs mt-2 block font-semibold"
-              style={{ color: "#8a8a8a" }}
-            >
-              Next-gen AI meetings notes with one Click
+            <span className="text-sm mt-2 block">
+              <PageHeaderDescription>
+                Next-gen AI meetings notes with one Click
+              </PageHeaderDescription>
             </span>
           </Link>
 

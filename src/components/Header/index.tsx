@@ -4,6 +4,7 @@ import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
 import Image from "next/image";
 import SearchForm from "@/components/Header/SearchForm";
+import { PageHeaderDescription } from "../Dashboard/ui/page";
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -71,7 +72,9 @@ const Header = (props: {
             <h1 className="mb-0.5 text-heading-6 font-bold text-dark dark:text-white">
               Dashboard
             </h1>
-            <p className="font-medium">Next-Gen AI Meetings Solution</p>
+            <PageHeaderDescription className="mt-2">
+              Next-Gen AI Meetings Solution
+            </PageHeaderDescription>
           </div>
         </div>
 

@@ -50,18 +50,19 @@ const ChatBox: React.FC = () => {
         />
       )}
       <div className="flex-1 rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
-        <div className="flex justify-between items-center mb-5">
-          <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
-            Team Follow-up Chats
-          </h4>
+        <div className="flex justify-end items-center mb-5">
           <div className="flex items-center">
             <ButtonDefault
               label="Add Collaborators"
               link="/"
               customClasses="border border-primary text-primary rounded-[8px] px-5 py-2 transition-transform transform hover:scale-105 hover:bg-primary hover:text-white "
             />
-            <ArrowLeft className="ml-4 mr-2" size={20} />
-            <ArrowRight size={20} />
+            {pathname !== "/chatrooms" && (
+              <>
+                <ArrowLeft className="ml-4 mr-2" size={20} />
+                <ArrowRight size={20} />
+              </>
+            )}
           </div>
         </div>
         {pathname === "/" && (
@@ -69,7 +70,7 @@ const ChatBox: React.FC = () => {
             These chats will help in following up on meeting details with other
             collaborators and team members. Stay updated and ensure everyone is
             on the same page by discussing key points and action items from your
-            meetings.
+            previous meetings.
           </PageHeaderDescription>
         )}
 

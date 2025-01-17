@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ScrollArea } from "../Dashboard/ui/scroll-area";
+import { PageHeaderDescription } from "../Dashboard/ui/page";
 
 const previousChats = [
   {
@@ -99,42 +100,10 @@ const PreviousChatsSidebar: React.FC<SidebarProps> = ({
       }`}
     >
       {/* <!-- SIDEBAR HEADER --> */}
-      <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-4 xl:py-8">
-        <Link href="/">
-          <div className="flex items-center gap-2">
-            <Image
-              width={50}
-              height={32}
-              src={"/images/logo/meetup.png"}
-              alt="Logo"
-              priority
-              className="dark:hidden"
-              style={{ width: "auto", height: "auto" }}
-            />
-            <Image
-              width={50}
-              height={32}
-              src={"/images/logo/meetup.png"}
-              alt="Logo"
-              priority
-              className="hidden dark:block"
-              style={{ width: "auto", height: "auto" }}
-            />
-            <span
-              className="text-lg font-semibold mt-5"
-              style={{ color: "#ff4f4f" }}
-            >
-              Meet.io
-            </span>
-          </div>
-          <span
-            className="text-xs mt-2 block font-semibold"
-            style={{ color: "#8a8a8a" }}
-          >
-            Next-gen AI meetings notes with one Click
-          </span>
-        </Link>
-
+      <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-4 xl:py-4">
+        <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
+          Chats
+        </h4>
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className="block lg:hidden"
