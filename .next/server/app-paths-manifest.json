@@ -1,5 +1,4 @@
 {
-  "/ui-elements/buttons/page": "app/ui-elements/buttons/page.js",
-  "/page": "app/page.js",
-  "/chatrooms/page": "app/chatrooms/page.js"
+  "/chatrooms/page": "app/chatrooms/page.js",
+  "/page": "app/page.js"
 }

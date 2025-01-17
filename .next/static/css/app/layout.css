@@ -719,12 +719,6 @@ body{
 .top-full{
   top: 100%;
 }
-.bottom-4{
-  bottom: 1rem;
-}
-.right-8{
-  right: 2rem;
-}
 .-z-1{
   z-index: -1;
 }
@@ -889,6 +883,12 @@ body{
 .ml-2{
   margin-left: 0.5rem;
 }
+.ml-4{
+  margin-left: 1rem;
+}
+.ml-5{
+  margin-left: 1.25rem;
+}
 .ml-auto{
   margin-left: auto;
 }
@@ -946,18 +946,6 @@ body{
 .mt-\[5px\]{
   margin-top: 5px;
 }
-.mt-8{
-  margin-top: 2rem;
-}
-.mt-3{
-  margin-top: 0.75rem;
-}
-.ml-4{
-  margin-left: 1rem;
-}
-.ml-5{
-  margin-left: 1.25rem;
-}
 .\!block{
   display: block !important;
 }
@@ -996,6 +984,9 @@ body{
 }
 .h-10{
   height: 2.5rem;
+}
+.h-100{
+  height: 25rem;
 }
 .h-11{
   height: 2.75rem;
@@ -1101,6 +1092,9 @@ body{
 }
 .h-screen{
   height: 100vh;
+}
+.h-\[600px\]{
+  height: 600px;
 }
 .max-h-screen{
   max-height: 100vh;
@@ -1282,9 +1276,6 @@ body{
 }
 .max-w-\[740px\]{
   max-width: 740px;
-}
-.max-w-\[750px\]{
-  max-width: 750px;
 }
 .max-w-\[970px\]{
   max-width: 970px;
@@ -1593,6 +1584,9 @@ body{
 .rounded-\[7px\]{
   border-radius: 7px;
 }
+.rounded-\[8px\]{
+  border-radius: 8px;
+}
 .rounded-\[inherit\]{
   border-radius: inherit;
 }
@@ -1610,9 +1604,6 @@ body{
 }
 .rounded-xl{
   border-radius: 0.75rem;
-}
-.rounded-\[8px\]{
-  border-radius: 8px;
 }
 .rounded-b-\[10px\]{
   border-bottom-right-radius: 10px;
@@ -1898,10 +1889,6 @@ body{
 }
 .bg-white\/20{
   background-color: rgb(255 255 255 / 0.2);
-}
-.bg-blue-400{
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 .fill-\[\#DFE3F0\]{
   fill: #DFE3F0;
@@ -2458,10 +2445,6 @@ body{
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.text-gray-600{
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 .text-opacity-0{
   --tw-text-opacity: 0;
@@ -3818,14 +3801,6 @@ input[type="search"]::-webkit-search-cancel-button{
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-primary\/5:hover{
-  background-color: rgb(255 79 79 / 0.05);
-}
-
-.hover\:bg-primary\/90:hover{
-  background-color: rgb(255 79 79 / 0.9);
-}
-
 .hover\:bg-gray-400:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
@@ -3834,6 +3809,14 @@ input[type="search"]::-webkit-search-cancel-button{
 .hover\:bg-primary:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(255 79 79 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-primary\/5:hover{
+  background-color: rgb(255 79 79 / 0.05);
+}
+
+.hover\:bg-primary\/90:hover{
+  background-color: rgb(255 79 79 / 0.9);
 }
 
 .hover\:bg-opacity-50:hover{
@@ -4203,11 +4186,6 @@ input[type="search"]::-webkit-search-cancel-button{
 :is(.dark .dark\:text-white){
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-:is(.dark .dark\:text-gray-400){
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
 :is(.dark .dark\:opacity-30){
@@ -4586,11 +4564,6 @@ input[type="search"]::-webkit-search-cancel-button{
   .lg\:py-4{
     padding-top: 1rem;
     padding-bottom: 1rem;
-  }
-
-  .lg\:px-5{
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
   }
 
   .lg\:pb-8{

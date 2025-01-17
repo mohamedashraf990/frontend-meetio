@@ -64,12 +64,15 @@ const ChatBox: React.FC = () => {
             <ArrowRight size={20} />
           </div>
         </div>
-        <PageHeaderDescription className="mb-7">
-          These chats will help in following up on meeting details with other
-          collaborators and team members. Stay updated and ensure everyone is on
-          the same page by discussing key points and action items from your
-          meetings.
-        </PageHeaderDescription>
+        {pathname === "/" && (
+          <PageHeaderDescription className="mb-7">
+            These chats will help in following up on meeting details with other
+            collaborators and team members. Stay updated and ensure everyone is
+            on the same page by discussing key points and action items from your
+            meetings.
+          </PageHeaderDescription>
+        )}
+
         <ScrollArea className="h-[475px]">
           <div className="flex-1 overflow-y-auto p-8 mb-4 bg-gray-50 rounded-lg shadow-inner">
             {messages?.map((message) => (
