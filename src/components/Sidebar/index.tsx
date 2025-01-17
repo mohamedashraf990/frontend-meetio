@@ -89,8 +89,8 @@ const menuGroups = [
           </svg>
         ),
         label: "Team Chats",
-        route: "#",
-        children: [{ label: "eCommerce", route: "/" }],
+        route: "/chatrooms",
+        children: [{ label: "Add Collaborators", route: "/" }],
       },
       {
         icon: (

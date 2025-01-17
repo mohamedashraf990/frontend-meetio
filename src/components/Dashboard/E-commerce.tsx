@@ -47,6 +47,8 @@ import ChatCard from "../Chat/ChatCard";
 import RecorderComponent from "./RecorderComponent";
 import MeetingsSummaryTable from "../Tables/MeetingsSummaryTable";
 import MeetingDetailsPage from "./MeetingDetailsPage";
+import Welcome from "../ChatRooms";
+import ChatBox from "../ChatRooms/ChatBox";
 
 const ECommerce: React.FC = () => {
   return (
@@ -65,6 +67,9 @@ const ECommerce: React.FC = () => {
       </div>
       <div className="mt-4">
         <MeetingDetailsPage />
+      </div>
+      <div className="mt-4">
+        <ChatBox />
       </div>
     </div>
   );
