@@ -18,6 +18,7 @@ interface MessageType {
   name: string;
   text: string;
   createdAt: any;
+  date: string;
 }
 
 const ChatBox: React.FC = () => {
