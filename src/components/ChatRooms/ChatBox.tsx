@@ -49,8 +49,15 @@ const ChatBox: React.FC = () => {
           setSidebarOpen={setSidebarOpen}
         />
       )}
-      <div className="flex-1 rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
-        <div className="flex justify-end items-center mb-5">
+      <div className="flex-1 rounded-[10px] bg-white px-7.5 pb-4 pt-7.5">
+        <div
+          className={`flex ${pathname !== "/chatrooms" ? "justify-between" : "justify-end"} items-center mb-5`}
+        >
+          {pathname !== "/chatrooms" && (
+            <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
+              Recent Team Chats
+            </h4>
+          )}
           <div className="flex items-center">
             <ButtonDefault
               label="Add Collaborators"
@@ -74,8 +81,8 @@ const ChatBox: React.FC = () => {
           </PageHeaderDescription>
         )}
 
-        <ScrollArea className="h-[475px]">
-          <div className="flex-1 overflow-y-auto p-8 mb-4 bg-gray-50 rounded-lg shadow-inner">
+        <ScrollArea className="h-[600px]">
+          <div className="flex-1 overflow-y-auto p-8 mb-4  rounded-lg shadow-inner">
             {messages?.map((message) => (
               <Message key={message.id} message={message} />
             ))}

@@ -19,7 +19,7 @@ const chatData: Chat[] = [
     name: "Henry Fisher",
     text: "I am waiting for you",
     time: "5:54 PM",
-    textCount: 0,
+    textCount: 1,
     dot: 1,
   },
   {
@@ -28,7 +28,7 @@ const chatData: Chat[] = [
     name: "Wilium Smith",
     text: "Where are you now?",
     time: "10:12 PM",
-    textCount: 0,
+    textCount: 1,
     dot: 3,
   },
   {
@@ -38,7 +38,7 @@ const chatData: Chat[] = [
     name: "Henry Deco",
     text: "Thank you so much!",
     time: "Sun",
-    textCount: 2,
+    textCount: 1,
     dot: 6,
   },
   {
@@ -47,7 +47,7 @@ const chatData: Chat[] = [
     name: "Jubin Jack",
     text: "Hello, how are you?",
     time: "Oct 23",
-    textCount: 0,
+    textCount: 1,
     dot: 3,
   },
   {
@@ -56,7 +56,7 @@ const chatData: Chat[] = [
     name: "Hana Saeed",
     text: "Hello, how are you?",
     time: "Oct 23",
-    textCount: 0,
+    textCount: 1,
     dot: 3,
   },
   {
@@ -65,7 +65,7 @@ const chatData: Chat[] = [
     name: "Hana Saeed",
     text: "Hello, how are you?",
     time: "Oct 23",
-    textCount: 0,
+    textCount: 2,
     dot: 3,
   },
   {
@@ -74,7 +74,7 @@ const chatData: Chat[] = [
     name: "Hana Saeed",
     text: "Hello, how are you?",
     time: "Oct 23",
-    textCount: 0,
+    textCount: 3,
     dot: 3,
   },
 ];
@@ -83,7 +83,7 @@ const ChatCard = () => {
   return (
     <div className="col-span-12 rounded-[10px] bg-white px-5  pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card xl:col-span-5">
       <h4 className="mb-5.5 px-7.5 text-body-2xlg font-bold text-dark dark:text-white">
-        Team Chats
+        Team Notifications
       </h4>
 
       <div>
