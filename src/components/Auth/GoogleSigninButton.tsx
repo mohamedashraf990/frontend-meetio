@@ -1,8 +1,24 @@
 import React from "react";
+import { auth } from "../ChatRooms/firebase";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 export default function GoogleSigninButton({ text }: { text: string }) {
+  const googleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // Handle successful sign-in here
+        console.log("User signed in:", result.user);
+      })
+      .catch((error) => {
+        // Handle errors here
+        console.error("Error signing in:", error);
+      });
+  };
+
   return (
     <button
+      onClick={googleSignIn}
       className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray-2 p-[15px] font-medium hover:bg-opacity-50 dark:border-dark-3 dark:bg-dark-2 dark:hover:bg-opacity-50"
     >
       <span>
@@ -27,8 +43,8 @@ export default function GoogleSigninButton({ text }: { text: string }) {
               fill="#FBBC05"
             />
             <path
-              d="M10.202 3.86687C11.6641 3.84462 13.0783 4.37827 14.1476 5.35583L17.0274 2.60021C15.1804 0.902092 12.7344 -0.0296414 10.202 0.000207357C8.31041 -0.000233694 6.456 0.514977 4.8461 1.48823C3.23621 2.46148 1.93429 3.85441 1.08594 5.51125L4.38555 8.02249C4.78912 6.8203 5.56754 5.77255 6.61107 5.02699C7.6546 4.28143 8.9106 3.87565 10.202 3.86687Z"
-              fill="#EB4335"
+              d="M10.2016 3.8665C11.788 3.84227 13.3089 4.42988 14.398 5.499L16.999 2.898C15.186 1.153 12.743 0 10.2016 0C8.30978 0 6.45535 0.515206 4.84545 1.48852C3.23556 2.46183 1.93366 3.85474 1.08533 5.51161L4.38684 8.02225C4.79616 6.81988 5.57201 5.7713 6.61401 5.02541C7.656 4.27952 8.91122 3.87401 10.2016 3.8665"
+              fill="#EA4335"
             />
           </g>
           <defs>
@@ -38,7 +54,7 @@ export default function GoogleSigninButton({ text }: { text: string }) {
           </defs>
         </svg>
       </span>
-      {text} with Google
+      {text}
     </button>
   );
 }

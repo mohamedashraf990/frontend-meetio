@@ -1,19 +1,38 @@
+"use client";
 import ECommerce from "@/components/Dashboard/E-commerce";
-import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLaout";
-import React from "react";
-
-export const metadata: Metadata = {
-  title: "Meet.io | Next-Gen AI Meetings Companion",
-  description: "This is Next.js Home page for NextAdmin Dashboard Kit",
-};
+import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import React, { useEffect, useState } from "react";
+import { auth } from "../components/ChatRooms/firebase";
+import { onAuthStateChanged, User } from "firebase/auth";
+import Signin from "@/components/Auth/Signin";
+import Loader from "@/components/common/Loader";
 
 export default function Home() {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  if (loading) {
+    return Loader; // You can replace this with a loading spinner or any other loading indicator
+  }
+
   return (
     <>
-      <DefaultLayout>
-        <ECommerce />
-      </DefaultLayout>
+      {user ? (
+        <DefaultLayout>
+          <ECommerce />
+        </DefaultLayout>
+      ) : (
+        <Signin />
+      )}
     </>
   );
 }
