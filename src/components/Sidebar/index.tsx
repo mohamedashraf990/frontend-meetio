@@ -7,6 +7,7 @@ import Image from "next/image";
 import SidebarItem from "@/components/Sidebar/SidebarItem";
 import ClickOutside from "@/components/ClickOutside";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import { UserPlus } from "lucide-react";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -90,7 +91,6 @@ const menuGroups = [
         ),
         label: "Team Chats",
         route: "/chatrooms",
-        children: [{ label: "Add Collaborators", route: "/" }],
       },
       {
         icon: (
@@ -345,16 +345,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <h3 className="mb-5 text-sm font-medium text-dark-4 dark:text-dark-6">
                   {group.name}
                 </h3>
-
                 <ul className="mb-6 flex flex-col gap-2">
-                  {group.menuItems.map((menuItem, menuIndex) => (
-                    <SidebarItem
-                      key={menuIndex}
-                      item={menuItem}
-                      pageName={pageName}
-                      setPageName={setPageName}
-                    />
-                  ))}
+                  {group.menuItems.map(
+                    (menuItem, menuIndex) => (
+                      console.log(menuItem),
+                      (
+                        <SidebarItem
+                          key={menuIndex}
+                          item={menuItem}
+                          pageName={pageName}
+                          setPageName={setPageName}
+                        />
+                      )
+                    )
+                  )}
                 </ul>
               </div>
             ))}

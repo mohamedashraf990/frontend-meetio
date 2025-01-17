@@ -1,5 +1,6 @@
 {
   "/not-found": "app/not-found.js",
-  "/page": "app/page.js",
-  "/chatrooms/page": "app/chatrooms/page.js"
+  "/profile/page": "app/profile/page.js",
+  "/chatrooms/page": "app/chatrooms/page.js",
+  "/page": "app/page.js"
 }
