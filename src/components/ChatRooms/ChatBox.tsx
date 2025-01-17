@@ -43,12 +43,11 @@ const ChatBox: React.FC = () => {
 
   return (
     <div className="flex relative">
-      {pathname === "/chatrooms" && (
-        <PreviousChatsSidebar
-          sidebarOpen={sidebarOpen}
-          setSidebarOpen={setSidebarOpen}
-        />
-      )}
+      <PreviousChatsSidebar
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
+
       <div className="flex-1 rounded-[10px] bg-white px-7.5 pb-4 pt-7.5">
         <div
           className={`flex ${pathname !== "/chatrooms" ? "justify-between" : "justify-end"} items-center mb-5`}
@@ -74,14 +73,12 @@ const ChatBox: React.FC = () => {
         </div>
         {pathname === "/" && (
           <PageHeaderDescription className="mb-7">
-            These chats will help in following up on meeting details with other
-            collaborators and team members. Stay updated and ensure everyone is
-            on the same page by discussing key points and action items from your
-            previous meetings.
+            Team chats will help you following up on meeting details with other
+            collaborators and team members.
           </PageHeaderDescription>
         )}
 
-        <ScrollArea className="h-[600px]">
+        <ScrollArea className="h-[750px]">
           <div className="flex-1 overflow-y-auto p-8 mb-4  rounded-lg shadow-inner">
             {messages?.map((message) => (
               <Message key={message.id} message={message} />

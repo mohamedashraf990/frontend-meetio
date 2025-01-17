@@ -1,4 +1,6 @@
 {
   "/page": "app/page.js",
-  "/chatrooms/page": "app/chatrooms/page.js"
+  "/chatrooms/page": "app/chatrooms/page.js",
+  "/pages/settings/page": "app/pages/settings/page.js",
+  "/profile/page": "app/profile/page.js"
 }

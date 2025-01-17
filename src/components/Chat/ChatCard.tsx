@@ -52,7 +52,7 @@ const chatData: Chat[] = [
   },
   {
     active: false,
-    avatar: "/images/user/user-06.png",
+    avatar: "/images/user/user-03.png",
     name: "Hana Saeed",
     text: "Hello, how are you?",
     time: "Oct 23",
@@ -61,7 +61,7 @@ const chatData: Chat[] = [
   },
   {
     active: false,
-    avatar: "/images/user/user-06.png",
+    avatar: "/images/user/user-02.png",
     name: "Hana Saeed",
     text: "Hello, how are you?",
     time: "Oct 23",
@@ -70,7 +70,7 @@ const chatData: Chat[] = [
   },
   {
     active: false,
-    avatar: "/images/user/user-06.png",
+    avatar: "/images/user/user-01.png",
     name: "Hana Saeed",
     text: "Hello, how are you?",
     time: "Oct 23",

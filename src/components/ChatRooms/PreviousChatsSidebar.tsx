@@ -80,6 +80,33 @@ const previousChats = [
     textCount: 0,
     route: "chatrooms/8",
   },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Hana Saeed",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    route: "chatrooms/8",
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Hana Saeed",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    route: "chatrooms/8",
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Hana Saeed",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    route: "chatrooms/8",
+  },
 ];
 
 interface SidebarProps {
@@ -93,7 +120,7 @@ const PreviousChatsSidebar: React.FC<SidebarProps> = ({
 }) => {
   return (
     <aside
-      className={`absolute left-0 top-0 z-9999 flex h-100% w-85 flex-col overflow-y-hidden border-r border-stroke bg-white dark:border-stroke-dark dark:bg-gray-dark lg:static lg:translate-x-0 ${
+      className={`absolute left-0 top-0 flex h-100% w-85 flex-col overflow-y-hidden border-r border-stroke bg-white dark:border-stroke-dark dark:bg-gray-dark lg:static lg:translate-x-0 ${
         sidebarOpen
           ? "translate-x-0 duration-300 ease-linear"
           : "-translate-x-full"
@@ -128,7 +155,7 @@ const PreviousChatsSidebar: React.FC<SidebarProps> = ({
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         {/* <!-- Sidebar Menu --> */}
         <nav className="mt-1 px-4 lg:px-6">
-          <ScrollArea className="h-[600px]">
+          <ScrollArea className="h-[860px]">
             {previousChats.map((chat, index) => (
               <Link
                 href={chat.route}
