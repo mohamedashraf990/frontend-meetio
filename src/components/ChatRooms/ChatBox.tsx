@@ -8,6 +8,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ScrollArea } from "../Dashboard/ui/scroll-area";
 import PreviousChatsSidebar from "./PreviousChatsSidebar";
 import { usePathname } from "next/navigation";
+import ButtonDefault from "../Buttons/ButtonDefault";
+import { PageHeaderDescription } from "../Dashboard/ui/page";
 
 interface MessageType {
   id: string;
@@ -40,7 +42,7 @@ const ChatBox: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex">
+    <div className="flex relative">
       {pathname === "/chatrooms" && (
         <PreviousChatsSidebar
           sidebarOpen={sidebarOpen}
@@ -50,13 +52,24 @@ const ChatBox: React.FC = () => {
       <div className="flex-1 rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
         <div className="flex justify-between items-center mb-5">
           <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
-            Recent Chats
+            Team Follow-up Chats
           </h4>
           <div className="flex items-center">
-            <ArrowLeft className="mr-2" size={20} />
+            <ButtonDefault
+              label="Add Collaborators"
+              link="/"
+              customClasses="border border-primary text-primary rounded-[8px] px-5 py-2 transition-transform transform hover:scale-105 hover:bg-primary hover:text-white "
+            />
+            <ArrowLeft className="ml-4 mr-2" size={20} />
             <ArrowRight size={20} />
           </div>
         </div>
+        <PageHeaderDescription className="mb-7">
+          These chats will help in following up on meeting details with other
+          collaborators and team members. Stay updated and ensure everyone is on
+          the same page by discussing key points and action items from your
+          meetings.
+        </PageHeaderDescription>
         <ScrollArea className="h-[475px]">
           <div className="flex-1 overflow-y-auto p-8 mb-4 bg-gray-50 rounded-lg shadow-inner">
             {messages?.map((message) => (

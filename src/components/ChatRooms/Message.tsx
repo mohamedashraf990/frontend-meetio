@@ -1,4 +1,3 @@
-// filepath: /Users/mo/frontend-meetio/src/components/ChatRooms/Message.tsx
 "use-client";
 import React from "react";
 import { auth } from "./firebase";
@@ -22,20 +21,20 @@ const Message: React.FC<MessageProps> = ({ message }) => {
 
   return (
     <div
-      className={`flex items-start mb-4 max-w-[40%] ${
+      className={`flex items-start mb-4 max-w-[50%] transition-transform transform hover:scale-105 ${
         message.uid === user.uid
-          ? "ml-auto bg-blue-500 text-white"
-          : "bg-gray-300 text-black"
-      } rounded-2xl p-4 shadow-md`}
+          ? "ml-auto bg-blue-500 text-white hover:bg-blue-600"
+          : "bg-gray-300 text-black hover:bg-gray-400"
+      } rounded-xl p-3 shadow-sm`}
     >
       <img
-        className="w-10 h-10 rounded-full mr-3"
+        className="w-8 h-8 rounded-full mr-2"
         src={message.avatar}
         alt="user avatar"
       />
       <div>
-        <p className="font-bold mb-1 text-sm">{message.name}</p>
-        <p className="break-words">{message.text}</p>
+        <p className="font-semibold mb-1 text-xs">{message.name}</p>
+        <p className="break-words text-sm">{message.text}</p>
       </div>
     </div>
   );

@@ -1,40 +1,98 @@
 "use-client";
 import React from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { UserPlus } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ScrollArea } from "../Dashboard/ui/scroll-area";
+
+const previousChats = [
+  {
+    active: true,
+    avatar: "/images/user/user-01.png",
+    name: "Devid Heilo",
+    text: "Hello, how are you?",
+    time: "12 min",
+    textCount: 3,
+    route: "chatrooms/1",
+  },
+  {
+    active: true,
+    avatar: "/images/user/user-02.png",
+    name: "Henry Fisher",
+    text: "I am waiting for you",
+    time: "5:54 PM",
+    textCount: 0,
+    route: "chatrooms/2",
+  },
+  {
+    active: null,
+    avatar: "/images/user/user-04.png",
+    name: "Wilium Smith",
+    text: "Where are you now?",
+    time: "10:12 PM",
+    textCount: 0,
+    route: "chatrooms/3",
+  },
+  {
+    active: true,
+    seen: true,
+    avatar: "/images/user/user-05.png",
+    name: "Henry Deco",
+    text: "Thank you so much!",
+    time: "Sun",
+    textCount: 2,
+    route: "chatrooms/4",
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Jubin Jack",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    route: "chatrooms/5",
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Hana Saeed",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    route: "chatrooms/6",
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Hana Saeed",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    route: "chatrooms/7",
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Hana Saeed",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    route: "chatrooms/8",
+  },
+];
 
 interface SidebarProps {
   sidebarOpen: boolean;
   setSidebarOpen: (arg: boolean) => void;
 }
 
-const previousChats = [
-  {
-    name: "Chat Room 1",
-    route: "/chatrooms/1",
-  },
-  {
-    name: "Chat Room 2",
-    route: "/chatrooms/2",
-  },
-  {
-    name: "Chat Room 3",
-    route: "/chatrooms/3",
-  },
-  // Add more chat rooms as needed
-];
-
 const PreviousChatsSidebar: React.FC<SidebarProps> = ({
   sidebarOpen,
   setSidebarOpen,
 }) => {
-  const pathname = usePathname();
-
   return (
     <aside
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden border-r border-stroke bg-white dark:border-stroke-dark dark:bg-gray-dark lg:static lg:translate-x-0 ${
+      className={`absolute left-0 top-0 z-9999 flex h-screen w-85 flex-col overflow-y-hidden border-r border-stroke bg-white dark:border-stroke-dark dark:bg-gray-dark lg:static lg:translate-x-0 ${
         sidebarOpen
           ? "translate-x-0 duration-300 ease-linear"
           : "-translate-x-full"
@@ -101,28 +159,64 @@ const PreviousChatsSidebar: React.FC<SidebarProps> = ({
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         {/* <!-- Sidebar Menu --> */}
         <nav className="mt-1 px-4 lg:px-6">
-          <h3 className="mb-5 text-sm font-medium text-dark-4 dark:text-dark-6">
-            Previous Team Chats
-          </h3>
-          <ul className="mb-6 flex flex-col gap-2">
+          <ScrollArea className="h-[475px]">
             {previousChats.map((chat, index) => (
-              <li key={index}>
-                <Link href={chat.route}>
-                  <div
-                    className={`flex items-center p-2 rounded-lg transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-700 ${
-                      pathname === chat.route
-                        ? "bg-gray-200 dark:bg-gray-700"
-                        : ""
+              <Link
+                href={chat.route}
+                className="flex items-center gap-4.5 px-7.5 py-3 hover:bg-gray-1 dark:hover:bg-dark-2"
+                key={index}
+              >
+                <div className="relative h-14 w-14 rounded-full">
+                  <Image
+                    width={56}
+                    height={56}
+                    src={chat.avatar}
+                    alt="User"
+                    style={{
+                      width: "auto",
+                      height: "auto",
+                    }}
+                  />
+                  <span
+                    className={`absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white dark:border-dark-2 ${
+                      chat.active === true
+                        ? "bg-green"
+                        : chat.active === false
+                          ? `bg-red-light`
+                          : "bg-orange-light"
                     }`}
-                  >
-                    <span className="ml-2 text-sm font-medium text-gray-800 dark:text-white">
+                  ></span>
+                </div>
+
+                <div className="flex flex-1 items-center justify-between">
+                  <div>
+                    <p className="font-xs text-dark text-body-sm dark:text-white">
                       {chat.name}
-                    </span>
+                    </p>
+                    <p>
+                      <span
+                        className={`mb-px text-body-xs font-xs ${
+                          chat.seen
+                            ? "dark:text-dark-3"
+                            : "text-dark-3 dark:text-dark-6"
+                        }`}
+                      >
+                        {chat.text}
+                      </span>
+                      <span className="text-xs"> . {chat.time}</span>
+                    </p>
                   </div>
-                </Link>
-              </li>
+                  {chat.textCount !== 0 && (
+                    <div className="flex items-center justify-center rounded-full bg-primary px-1.5 ml-2">
+                      <span className="text-xs font-medium text-white">
+                        {chat.textCount}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </Link>
             ))}
-          </ul>
+          </ScrollArea>
         </nav>
         {/* <!-- Sidebar Menu --> */}
       </div>

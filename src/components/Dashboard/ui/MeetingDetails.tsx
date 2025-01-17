@@ -21,6 +21,7 @@ import {
 import CategoryCard from "./CategoryCard";
 import axios from "axios";
 import { useToast } from "../hooks/use-toast";
+import ButtonDefault from "@/components/Buttons/ButtonDefault";
 
 interface CategoryItem {
   [key: string]: string;
@@ -139,20 +140,18 @@ export default function MeetingDetails({ data }: MeetingDetailsProps) {
           Recent Summaries
         </h4>
         <div className="flex items-center">
-          <ArrowLeft className="mr-2" size={20} />
+          <ButtonDefault
+            label="Export as PDF"
+            link="/"
+            customClasses="border border-primary text-primary rounded-[8px] px-5 py-2 transition-transform transform hover:scale-105 hover:bg-primary hover:text-white "
+          />
+          <ArrowLeft className=" ml-5 mr-3" size={20} />
           <ArrowRight size={20} />
         </div>
       </div>
+
       <div className="flex justify-between items-center mb-7">
         <h2 className="text-xl font-bold">{data.name}</h2>
-
-        <button
-          onClick={handleExport}
-          className="flex items-center px-4 py-2 bg-primary text-white text-sm rounded-[5px] dark:bg-primary-dark"
-        >
-          <Download className="w-5 h-5 mr-2" />
-          Export as DOCX
-        </button>
       </div>
       <p className="text-muted-foreground mb-6">{data.description}</p>
       <Tabs defaultValue="summary" className="space-y-4">

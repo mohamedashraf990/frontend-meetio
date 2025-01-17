@@ -39,10 +39,7 @@ function PageHeaderDescription({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn(
-        "max-w-[750px] text-muted-foreground  text-pretty",
-        className
-      )}
+      className={cn("text-muted-foreground  text-pretty", className)}
       {...props}
     />
   );

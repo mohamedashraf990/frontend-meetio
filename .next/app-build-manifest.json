@@ -16,15 +16,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/chatrooms/page.js"
     ],
-    "/profile/page": [
+    "/ui-elements/buttons/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/profile/page.js"
-    ],
-    "/not-found": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/chunks/app/ui-elements/buttons/page.js"
     ]
   }
 }
