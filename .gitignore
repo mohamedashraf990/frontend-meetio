@@ -19,3 +19,6 @@ yarn-error.log*
 .vscode/
 *.sublime-project
 *.sublime-workspace
+.next/cache/webpack/*
+.next/cache/webpack/client-development/0.pack.gz
+.next/server/*
