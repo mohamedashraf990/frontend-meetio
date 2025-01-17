@@ -10,7 +10,7 @@ interface MessageProps {
     avatar: string;
     name: string;
     text: string;
-    date: string; // Assuming date is part of the message object
+    createdAt?: { seconds: number; nanoseconds: number }; // Assuming date is part of the message object
   };
 }
 
@@ -38,6 +38,14 @@ const Message: React.FC<MessageProps> = ({ message }) => {
   if (!user) {
     return null; // or some fallback UI
   }
+
+  const formatDate = (timestamp?: { seconds: number; nanoseconds: number }) => {
+    if (!timestamp) return "";
+    const date = new Date(
+      timestamp.seconds * 1000 + timestamp.nanoseconds / 1000000
+    );
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  };
 
   return (
     <div
@@ -67,7 +75,7 @@ const Message: React.FC<MessageProps> = ({ message }) => {
         </div>
         <div className="flex items-center mt-1">
           <svg
-            className="w-4 h-4 text-green-500 -mr-2.5"
+            className="w-4 h-4 text-green-500 -mr-3"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -80,25 +88,25 @@ const Message: React.FC<MessageProps> = ({ message }) => {
               d="M5 13l4 4L19 7"
             ></path>
           </svg>
-          <svg
-            className="w-4 h-4 text-green-500"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5 13l4 4L19 7"
-            ></path>
-          </svg>
-          <span className="text-xs text-gray-500 dark:text-gray-400 ml-1 relative group">
-            Delivered
-            <span className="absolute left-0 bottom-full mb-1 hidden text-xs text-gray-500 dark:text-gray-400 group-hover:block">
-              {message.date}
-            </span>
+          {message.createdAt && (
+            <svg
+              className="w-4 h-4 text-green-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+          )}
+          <span className="text-xs text-gray-500 dark:text-gray-400 ml-1">
+            Delivered{" "}
+            {message.createdAt ? `at ${formatDate(message.createdAt)}` : ""}
           </span>
         </div>
         <div
