@@ -1,5 +1,5 @@
 "use-client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { auth } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Reply, Forward, Copy, Trash, MoreVertical } from "lucide-react"; // Assuming you are using lucide-react for icons
@@ -17,6 +17,23 @@ interface MessageProps {
 const Message: React.FC<MessageProps> = ({ message }) => {
   const [user] = useAuthState(auth);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   if (!user) {
     return null; // or some fallback UI
@@ -24,7 +41,7 @@ const Message: React.FC<MessageProps> = ({ message }) => {
 
   return (
     <div
-      className={`flex items-start gap-2.5 mb-4 transition-transform transform hover:scale-105 ${
+      className={`flex items-start gap-2.5 mb-10 transition-transform transform hover:scale-105 ${
         message.uid === user.uid ? "ml-auto" : ""
       }`}
     >
@@ -84,7 +101,10 @@ const Message: React.FC<MessageProps> = ({ message }) => {
             </span>
           </span>
         </div>
-        <div className="absolute -top-4 right-0 mt-2 mr-2 z-20">
+        <div
+          className="absolute -top-4 right-0 mt-2 mr-2 z-20"
+          ref={dropdownRef}
+        >
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
@@ -92,15 +112,12 @@ const Message: React.FC<MessageProps> = ({ message }) => {
             <MoreVertical className="w-4 h-4" />
           </button>
           {dropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg z-50">
+            <div className="absolute right-0  w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg z-50">
               <button className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
                 <Reply className="w-4 h-4 inline mr-2" /> Reply
               </button>
               <button className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
                 <Forward className="w-4 h-4 inline mr-2" /> Forward
-              </button>
-              <button className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
-                <Copy className="w-4 h-4 inline mr-2" /> Copy
               </button>
               <button className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
                 <Trash className="w-4 h-4 inline mr-2" /> Delete
