@@ -160,8 +160,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Settings",
-        route: "#",
-        children: [{ label: "Settings", route: "/pages/settings" }],
+        route: "/pages/settings",
       },
     ],
   },

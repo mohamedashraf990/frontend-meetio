@@ -21,7 +21,7 @@ export default function Home() {
   }, []);
 
   if (loading) {
-    return Loader; // You can replace this with a loading spinner or any other loading indicator
+    return <Loader></Loader>;
   }
 
   return (

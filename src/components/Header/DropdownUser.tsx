@@ -5,6 +5,9 @@ import ClickOutside from "@/components/ClickOutside";
 import { auth } from "../ChatRooms/firebase";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import Loader from "@/components/common/Loader";
+import React, { useEffect } from "react";
+import { onAuthStateChanged, User } from "firebase/auth";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -20,6 +23,18 @@ const DropdownUser = () => {
         console.error("Error signing out:", error);
       });
   };
+  const [user, setUser] = useState<User | null>(null);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      setUser(user);
+    });
+
+    return () => unsubscribe();
+  }, []);
+  if (!user) {
+    return <Loader></Loader>; // You can replace this with a loading spinner or any other loading indicator
+  }
 
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
@@ -32,7 +47,7 @@ const DropdownUser = () => {
           <Image
             width={112}
             height={112}
-            src="/images/user/user-03.png"
+            src={user.photoURL || "/images/user/user-03.png"}
             style={{
               width: "auto",
               height: "auto",
@@ -43,7 +58,7 @@ const DropdownUser = () => {
         </span>
 
         <span className="flex items-center gap-2 font-medium text-dark dark:text-dark-6">
-          <span className="hidden lg:block">Jhon Smith</span>
+          <span className="hidden lg:block">{user.displayName}</span>
 
           <svg
             className={`fill-current duration-200 ease-in ${dropdownOpen && "rotate-180"}`}
@@ -73,7 +88,7 @@ const DropdownUser = () => {
               <Image
                 width={112}
                 height={112}
-                src="/images/user/user-03.png"
+                src={user.photoURL || "/images/user/user-03.png"}
                 style={{
                   width: "auto",
                   height: "auto",
@@ -87,10 +102,10 @@ const DropdownUser = () => {
 
             <span className="block">
               <span className="block font-medium text-dark dark:text-white">
-                Jhon Smith
+                {user.displayName}
               </span>
               <span className="block font-medium text-dark-5 dark:text-dark-6">
-                jonson@nextadmin.com
+                {user.email}
               </span>
             </span>
           </div>

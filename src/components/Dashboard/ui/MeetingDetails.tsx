@@ -101,38 +101,6 @@ export default function MeetingDetails({ data }: MeetingDetailsProps) {
     },
   ];
 
-  const handleExport = async () => {
-    try {
-      const response = await axios.get(`/api/meetings/${data.id}/export`, {
-        responseType: "blob",
-      });
-
-      if (response.status === 200) {
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute(
-          "download",
-          `${data.name.replace(/\s+/g, "_")}_Details.docx`
-        );
-        document.body.appendChild(link);
-        link.click();
-        link.parentNode?.removeChild(link);
-        toast({
-          title: "Success",
-          description: "Meeting details exported successfully!",
-        });
-      }
-    } catch (error: any) {
-      console.error(error);
-      toast({
-        title: "Error",
-        description: "Failed to export meeting details.",
-        variant: "destructive",
-      });
-    }
-  };
-
   return (
     <div className="rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
       <div className="flex justify-between items-center mb-5">

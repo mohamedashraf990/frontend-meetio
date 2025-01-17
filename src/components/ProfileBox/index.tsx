@@ -1,9 +1,26 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { auth } from "../ChatRooms/firebase";
+import { onAuthStateChanged, User } from "firebase/auth";
+import Loader from "@/components/common/Loader";
 
 const ProfileBox = () => {
+  const [user, setUser] = useState<User | null>(null);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      setUser(user);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  if (!user) {
+    return <Loader></Loader>; // You can replace this with a loading spinner or any other loading indicator
+  }
+
   return (
     <>
       <div className="overflow-hidden rounded-[10px] bg-white shadow-1 dark:bg-gray-dark dark:shadow-card">
@@ -56,7 +73,7 @@ const ProfileBox = () => {
           <div className="relative z-30 mx-auto -mt-22 h-30 w-full max-w-30 rounded-full bg-white/20 p-1 backdrop-blur sm:h-44 sm:max-w-[176px] sm:p-3">
             <div className="relative drop-shadow-2">
               <Image
-                src="/images/user/user-03.png"
+                src={user.photoURL || "/images/user/user-03.png"}
                 width={160}
                 height={160}
                 className="overflow-hidden rounded-full"
@@ -95,9 +112,9 @@ const ProfileBox = () => {
           </div>
           <div className="mt-4">
             <h3 className="mb-1 text-heading-6 font-bold text-dark dark:text-white">
-              Danish Heilium
+              {user.displayName}
             </h3>
-            <p className="font-medium">Ui/Ux Designer</p>
+            <p className="font-medium">{user.email}</p>
             <div className="mx-auto mb-5.5 mt-5 grid max-w-[370px] grid-cols-3 rounded-[5px] border border-stroke py-[9px] shadow-1 dark:border-dark-3 dark:bg-dark-2 dark:shadow-card">
               <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-dark-3 xsm:flex-row">
                 <span className="font-medium text-dark dark:text-white">
