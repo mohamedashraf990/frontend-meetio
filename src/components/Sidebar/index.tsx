@@ -7,7 +7,6 @@ import Image from "next/image";
 import SidebarItem from "@/components/Sidebar/SidebarItem";
 import ClickOutside from "@/components/ClickOutside";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { UserPlus } from "lucide-react";
 import { PageHeaderDescription } from "../Dashboard/ui/page";
 
 interface SidebarProps {
