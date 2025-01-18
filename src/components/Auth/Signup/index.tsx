@@ -18,6 +18,7 @@ export default function SignUp() {
                   type="text"
                   placeholder="Enter your first name"
                   customClasses="w-full xl:w-1/2"
+                  required
                 />
 
                 <InputGroup
@@ -25,6 +26,7 @@ export default function SignUp() {
                   type="text"
                   placeholder="Enter your last name"
                   customClasses="w-full xl:w-1/2"
+                  required
                 />
               </div>
 
@@ -37,9 +39,9 @@ export default function SignUp() {
               />
 
               <InputGroup
-                label="Subject"
+                label="Phone Number"
                 type="text"
-                placeholder="Enter your subject"
+                placeholder="Enter your Phone Number"
                 customClasses="mb-4.5"
               />
 
@@ -47,17 +49,17 @@ export default function SignUp() {
 
               <div className="mb-6">
                 <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-                  Message
+                  Bio
                 </label>
                 <textarea
                   rows={6}
-                  placeholder="Type your message"
+                  placeholder="Tell your team much more about yourself ..."
                   className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5 py-3 text-dark outline-none transition placeholder:text-dark-6 focus:border-primary active:border-primary disabled:cursor-default dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
                 ></textarea>
               </div>
 
               <button className="flex w-full justify-center rounded-[7px] bg-primary p-[13px] font-medium text-white hover:bg-opacity-90">
-                Send Message
+                Sign up
               </button>
             </div>
           </form>

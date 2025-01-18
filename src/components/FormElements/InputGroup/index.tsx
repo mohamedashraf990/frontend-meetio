@@ -20,7 +20,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
       <div className={customClasses}>
         <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
           {label}
-          {required && <span className="text-red">*</span>}
+          {required && <span className="text-red ml-1">*</span>}
         </label>
         <input
           type={type}
