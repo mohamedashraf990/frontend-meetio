@@ -2,9 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { ScrollArea } from "../Dashboard/ui/scroll-area";
-import { PageHeaderDescription } from "../Dashboard/ui/page";
 
 const previousChats = [
   {

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { auth } from "../../firebaseAuth/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Reply, Forward, Copy, Trash, MoreVertical } from "lucide-react"; // Assuming you are using lucide-react for icons
+import { Reply, Forward, Trash, MoreVertical } from "lucide-react"; // Assuming you are using lucide-react for icons
 
 interface MessageProps {
   message: {
