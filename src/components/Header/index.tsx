@@ -75,14 +75,12 @@ const Header = (props: {
         </div>
 
         <div className="hidden xl:block">
-          <div>
-            <h1 className="mb-0.5 text-heading-6 font-bold text-dark dark:text-white">
-              {pathname === "/chatrooms" ? "Team Chat" : "Dashboard"}
-            </h1>
-            <PageHeaderDescription className="mt-2">
-              Next-Gen AI Meetings Solution
-            </PageHeaderDescription>
-          </div>
+          <h1 className="mb-0.5 text-heading-6 font-bold text-dark dark:text-white">
+            {pathname === "/chatrooms" ? "Team Chat" : "Dashboard"}
+          </h1>
+          <PageHeaderDescription className="mt-2">
+            Next-Gen AI Meetings Solution
+          </PageHeaderDescription>
         </div>
 
         <div className="flex items-center justify-normal gap-2 2xsm:gap-4 lg:w-full lg:justify-between xl:w-auto xl:justify-normal">

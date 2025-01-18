@@ -1,14 +1,17 @@
 import React from "react";
 import { auth } from "../ChatRooms/firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 export default function GoogleSigninButton({ text }: { text: string }) {
+  const router = useRouter();
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
         // Handle successful sign-in here
         console.log("User signed in:", result.user);
+        router.push("/"); // Navigate to the root route
       })
       .catch((error) => {
         // Handle errors here
