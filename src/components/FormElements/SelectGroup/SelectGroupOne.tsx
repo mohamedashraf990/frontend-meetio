@@ -11,7 +11,7 @@ const SelectGroupOne: React.FC = () => {
 
   return (
     <div className="mb-4.5">
-      <label className="mb-3 block text-body-sm text-dark dark:text-white">
+      <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
         Country
       </label>
 
