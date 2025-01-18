@@ -4,7 +4,10 @@ import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne
 import Link from "next/link";
 import React, { useState } from "react";
 import { auth } from "@/firebaseAuth/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { useRouter } from "next/navigation";
 
 export default function SignUp() {
@@ -15,13 +18,23 @@ export default function SignUp() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [bio, setBio] = useState("");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setMessage("");
+
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      await sendEmailVerification(user);
+      setMessage("Verification email sent. Please check your inbox.");
       console.log(email, password, firstName, lastName, phoneNumber, bio);
       // Optionally, you can save additional user information to your database here
       router.push("/"); // Navigate to the root route after successful sign-up
@@ -29,6 +42,7 @@ export default function SignUp() {
       setError("Failed to sign up. Please check your email and password.");
     }
   };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
       <div className="w-full max-w-lg bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
@@ -52,8 +66,9 @@ export default function SignUp() {
               type="text"
               placeholder="Enter your last name"
               customClasses="w-full"
-              required
+              value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              required
             />
           </div>
 
@@ -62,24 +77,19 @@ export default function SignUp() {
             type="email"
             placeholder="Enter your email address"
             customClasses="mb-4.5"
-            required
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
+
           <InputGroup
             label="Password"
-            type="passwrod"
+            type="password"
             placeholder="Enter your password"
             customClasses="mb-4.5"
-            required
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-          <InputGroup
-            label="Password"
-            type="passwrod"
-            placeholder="Confirm your password"
-            customClasses="mb-4.5"
             required
-            onChange={(e) => setPassword(e.target.value)}
           />
 
           <InputGroup
@@ -87,6 +97,7 @@ export default function SignUp() {
             type="text"
             placeholder="Enter your Phone Number"
             customClasses="mb-4.5"
+            value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
 
@@ -100,14 +111,15 @@ export default function SignUp() {
               rows={3}
               placeholder="Tell your team much more about yourself ..."
               className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5 py-3 text-dark outline-none transition placeholder:text-dark-6 focus:border-primary active:border-primary disabled:cursor-default dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
+              value={bio}
               onChange={(e) => setBio(e.target.value)}
             ></textarea>
           </div>
 
-          <button
-            type="submit"
-            className="flex w-full justify-center rounded-[7px] bg-primary p-[13px] font-medium text-white hover:bg-opacity-90"
-          >
+          {message && <div className="mb-4 text-green-500">{message}</div>}
+          {error && <div className="mb-4 text-red-500">{error}</div>}
+
+          <button className="flex w-full justify-center rounded-[7px] bg-primary p-[13px] font-medium text-white hover:bg-opacity-90">
             Sign up
           </button>
         </form>

@@ -4,6 +4,8 @@ import "@/css/satoshi.css";
 import "@/css/style.css";
 import React from "react";
 import ClientLoaderWrapper from "@/components/ClientAuthWrapper/ClientLoaderWrapper";
+import { useAuth } from "@/hooks/useAuth";
+import EmailVerificationBanner from "@/components/Header/EmailVerificationBanner";
 
 export default function RootLayout({
   children,
