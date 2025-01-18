@@ -1,5 +1,5 @@
 import React from "react";
-import { auth } from "../ChatRooms/firebase";
+import { auth } from "../../firebaseAuth/firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 

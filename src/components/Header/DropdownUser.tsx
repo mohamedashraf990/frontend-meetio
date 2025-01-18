@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ClickOutside from "@/components/ClickOutside";
-import { auth } from "../ChatRooms/firebase";
+import { auth } from "../../firebaseAuth/firebase";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/common/Loader";

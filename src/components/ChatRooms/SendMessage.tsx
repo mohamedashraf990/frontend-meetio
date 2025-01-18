@@ -1,7 +1,7 @@
 // filepath: /Users/mo/frontend-meetio/src/components/ChatRooms/SendMessage.tsx
 "use-client";
 import React, { useState } from "react";
-import { auth, db } from "./firebase";
+import { auth, db } from "../../firebaseAuth/firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { Send, Smile } from "lucide-react"; // Import the Send icon from Lucide
 import EmojiPicker from "emoji-picker-react";

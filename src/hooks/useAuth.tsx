@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { auth } from "@/components/ChatRooms/firebase";
+import { auth } from "@/firebaseAuth/firebase";
 import { onAuthStateChanged, User } from "firebase/auth";
 
 export function useAuth() {

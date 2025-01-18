@@ -1,7 +1,7 @@
 "use-client";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./firebase";
+import { auth } from "../../firebaseAuth/firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import GoogleSignin from "../assets/google_signin.png"; // Adjust the path as needed
 

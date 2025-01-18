@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { auth } from "../ChatRooms/firebase";
+import { auth } from "../../firebaseAuth/firebase";
 import { onAuthStateChanged, User } from "firebase/auth";
 import Loader from "@/components/common/Loader";
 

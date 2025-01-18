@@ -1,7 +1,7 @@
 "use-client";
 import React, { useEffect, useState, useRef } from "react";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "../../firebaseAuth/firebase";
 import Message from "./Message";
 import SendMessage from "./SendMessage";
 import { ArrowLeft, ArrowRight } from "lucide-react";

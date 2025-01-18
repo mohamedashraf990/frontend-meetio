@@ -3,7 +3,7 @@ import Image from "next/image";
 import Loader from "@/components/common/Loader";
 import React, { useEffect, useState } from "react";
 import { onAuthStateChanged, User } from "firebase/auth";
-import { auth } from "../ChatRooms/firebase";
+import { auth } from "../../firebaseAuth/firebase";
 
 const SettingBoxes = () => {
   const [user, setUser] = useState<User | null>(null);

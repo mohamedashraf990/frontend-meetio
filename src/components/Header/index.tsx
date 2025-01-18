@@ -8,7 +8,7 @@ import { PageHeaderDescription } from "../Dashboard/ui/page";
 import { usePathname } from "next/navigation";
 import Loader from "@/components/common/Loader";
 import React, { useEffect, useState } from "react";
-import { auth } from "../ChatRooms/firebase";
+import { auth } from "../../firebaseAuth/firebase";
 import { onAuthStateChanged, User } from "firebase/auth";
 
 const Header = (props: {
