@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 import React, { useEffect, useState, useRef } from "react";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebaseAuth/firebase";
@@ -20,7 +20,7 @@ interface MessageType {
   createdAt: any;
 }
 
-const ChatBox: React.FC = () => {
+const ClientChatBox: React.FC = () => {
   const [messages, setMessages] = useState<MessageType[]>([]);
   const scroll = useRef<HTMLSpanElement>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -92,4 +92,4 @@ const ChatBox: React.FC = () => {
   );
 };
 
-export default ChatBox;
+export default ClientChatBox;

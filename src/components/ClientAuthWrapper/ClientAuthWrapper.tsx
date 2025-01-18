@@ -15,8 +15,6 @@ export default function ClientAuthWrapper({
   useEffect(() => {
     if (!loading && !user) {
       router.push("/auth/signin");
-    } else {
-      router.push("/");
     }
   }, [loading, user, router]);
 
