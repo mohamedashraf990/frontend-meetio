@@ -1,4 +1,3 @@
-// filepath: /Users/mo/frontend-meetio/src/components/ChatRooms/SendMessage.tsx
 "use-client";
 import React, { useState } from "react";
 import { auth, db } from "../../firebaseAuth/firebase";

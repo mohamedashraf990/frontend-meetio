@@ -160,7 +160,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Settings",
-        route: "/pages/settings",
+        route: "/settings/profile-settings",
       },
     ],
   },
