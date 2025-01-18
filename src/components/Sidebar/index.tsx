@@ -137,8 +137,8 @@ const menuGroups = [
             <path d="M10 18h4" />
           </svg>
         ),
-        label: "Manage Collaborators",
-        route: "/calendar",
+        label: "Manage Workspaces",
+        route: "/workspaces",
       },
 
       {

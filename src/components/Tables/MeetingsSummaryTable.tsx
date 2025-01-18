@@ -69,12 +69,29 @@ const meetingData: MEETING[] = [
     notesLink: "Link will be added",
   },
 ];
+interface MeetingsSummaryTableProps {
+  title?: string;
+  isView?: boolean;
+  isDownlaod?: boolean;
+  isDelete?: boolean;
+  isChat?: boolean;
+  isAssign?: boolean;
+  isAddCollaboratorInvite?: boolean;
+}
 
-const MeetingsSummaryTable = () => {
+const MeetingsSummaryTable: React.FC<MeetingsSummaryTableProps> = ({
+  title,
+  isView = false,
+  isDownlaod = false,
+  isDelete = false,
+  isChat = false,
+  isAssign = false,
+  isAddCollaboratorInvite = false,
+}) => {
   return (
     <div className="rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
       <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
-        Recent Meetings
+        {title ? title : "Recent Meetings"}
       </h4>
 
       <div className="flex flex-col">
@@ -150,7 +167,13 @@ const MeetingsSummaryTable = () => {
               <div className="hidden items-center justify-center px-2 py-4 sm:flex">
                 <p className="font-medium text-dark dark:text-white">
                   {/* {meeting.notesLink} */}
-                  <ActionButtons />
+                  <ActionButtons
+                    isView={isView}
+                    isDelete={isDelete}
+                    isDownlaod={isDownlaod}
+                    isChat={isChat}
+                    isAssign={isAssign}
+                  />
                 </p>
               </div>
             </div>

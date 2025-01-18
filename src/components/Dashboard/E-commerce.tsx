@@ -62,7 +62,12 @@ const ECommerce: React.FC = () => {
         </div>
       </div>
       <div className="mt-4">
-        <MeetingsSummaryTable />
+        <MeetingsSummaryTable
+          title="Recent Meetings"
+          isDelete
+          isView
+          isDownlaod
+        />
       </div>
       <div className="mt-4">
         <MeetingDetailsPage />
