@@ -1,14 +1,33 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { auth } from "@/firebaseAuth/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 export default function SigninWithPassword() {
   const [data, setData] = useState({
     remember: false,
   });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push("/"); // Navigate to the root route after successful sign-in
+    } catch (err) {
+      setError("Failed to sign in. Please check your email and password.");
+    }
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="mb-4">
         <label
           htmlFor="email"
@@ -21,6 +40,8 @@ export default function SigninWithPassword() {
             type="email"
             placeholder="Enter your email"
             name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-lg border border-stroke bg-transparent py-[15px] pl-6 pr-11 font-medium text-dark outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
           />
 
@@ -57,6 +78,8 @@ export default function SigninWithPassword() {
             name="password"
             placeholder="Enter your password"
             autoComplete="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-full rounded-lg border border-stroke bg-transparent py-[15px] pl-6 pr-11 font-medium text-dark outline-none focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
           />
 
@@ -131,6 +154,7 @@ export default function SigninWithPassword() {
       <div className="mb-4.5">
         <button
           type="submit"
+          onSubmit={handleSubmit}
           className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary p-4 font-medium text-white transition hover:bg-opacity-90"
         >
           Sign In
