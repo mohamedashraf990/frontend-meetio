@@ -2,6 +2,8 @@ import { MEETING } from "@/types/brand";
 import Image from "next/image";
 import ActionButtons from "./ActionButtons";
 import { ScrollArea } from "../Dashboard/ui/scroll-area";
+import ButtonDefault from "../Buttons/ButtonDefault";
+import { ArrowLeft, ArrowRight, Trash2 } from "lucide-react";
 
 const meetingData: MEETING[] = [
   {
@@ -77,6 +79,7 @@ interface MeetingsSummaryTableProps {
   isChat?: boolean;
   isAssign?: boolean;
   isAddCollaboratorInvite?: boolean;
+  isDeleteWorkspace?: boolean;
 }
 
 const MeetingsSummaryTable: React.FC<MeetingsSummaryTableProps> = ({
@@ -87,12 +90,27 @@ const MeetingsSummaryTable: React.FC<MeetingsSummaryTableProps> = ({
   isChat = false,
   isAssign = false,
   isAddCollaboratorInvite = false,
+  isDeleteWorkspace = false,
 }) => {
   return (
     <div className="rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
-      <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
-        {title ? title : "Recent Meetings"}
-      </h4>
+      <div className="flex justify-between items-center mb-8">
+        <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
+          {title ? title : "Recent Meetings"}
+        </h4>
+        {isAddCollaboratorInvite && isDeleteWorkspace && (
+          <div className="flex items-center">
+            <ButtonDefault
+              label="Add Collaborators"
+              link="/"
+              customClasses="border border-primary text-primary rounded-[8px] px-5 py-2 transition-transform transform hover:scale-105 hover:bg-primary hover:text-white "
+            />
+            <>
+              <Trash2 className="ml-4 mr-2" size={20} />
+            </>
+          </div>
+        )}
+      </div>
 
       <div className="flex flex-col">
         <div className="grid grid-cols-3 sm:grid-cols-5">

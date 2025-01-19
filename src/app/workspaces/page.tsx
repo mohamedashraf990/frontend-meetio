@@ -6,10 +6,24 @@ export default function WorkspacesPage() {
   return (
     <DefaultLayout>
       <div className="mb-4">
-        <MeetingsSummaryTable title="Tech Team" isChat isDelete isAssign />
+        <MeetingsSummaryTable
+          title="Tech Team"
+          isChat
+          isDelete
+          isAssign
+          isAddCollaboratorInvite
+          isDeleteWorkspace
+        />
       </div>
       <div className="mb-4">
-        <MeetingsSummaryTable title="Marketing Team" isChat isDelete isAssign />
+        <MeetingsSummaryTable
+          title="Marketing Team"
+          isChat
+          isDelete
+          isAssign
+          isAddCollaboratorInvite
+          isDeleteWorkspace
+        />
       </div>
       <div className="mb-4">
         <MeetingsSummaryTable
@@ -17,6 +31,8 @@ export default function WorkspacesPage() {
           isChat
           isDelete
           isAssign
+          isAddCollaboratorInvite
+          isDeleteWorkspace
         />
       </div>
       <div className="mb-4">
@@ -25,6 +41,8 @@ export default function WorkspacesPage() {
           isChat
           isDelete
           isAssign
+          isAddCollaboratorInvite
+          isDeleteWorkspace
         />
       </div>
     </DefaultLayout>
